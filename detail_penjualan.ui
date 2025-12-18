@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>653</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Detail Penjualan</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string>QWidget#centralwidget { background-color: #E3F2FD; }</string>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>30</y>
+      <width>691</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>22</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string>color: #0D47A1; /* Biru Tua untuk judul */</string>
+    </property>
+    <property name="text">
+     <string>DETAIL TRANSAKSI PENJUALAN 🧾</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_detail">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>100</y>
+      <width>500</width>
+      <height>370</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>
+      QGroupBox { 
+       background-color: white; 
+       border: 2px solid #BBDEFB; 
+       border-radius: 10px; 
+       margin-top: 25px; 
+       padding-top: 15px;
+       font: 700 12pt &quot;Times New Roman&quot;; 
+       color: #1976D2; 
+      } 
+      QGroupBox::title { 
+       subcontrol-origin: margin; 
+       subcontrol-position: top center; 
+       padding: 0 10px; 
+      }
+     </string>
+    </property>
+    <property name="title">
+     <string>Rincian Barang &amp; Total</string>
+    </property>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>40</y>
+       <width>150</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Nama Barang:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_barang">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>40</y>
+       <width>270</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string>QLineEdit { border: 1px solid #BBDEFB; border-radius: 6px; padding: 5px; background-color: #F5F5F5; }</string>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>90</y>
+       <width>150</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Ukuran:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_ukuran">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>90</y>
+       <width>270</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string>QLineEdit { border: 1px solid #BBDEFB; border-radius: 6px; padding: 5px; background-color: #F5F5F5; }</string>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>140</y>
+       <width>150</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Harga Satuan (Rp):</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_harga">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>140</y>
+       <width>270</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string>QLineEdit { border: 1px solid #BBDEFB; border-radius: 6px; padding: 5px; background-color: #F5F5F5; }</string>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>190</y>
+       <width>150</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Jumlah Beli:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_jumlah">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>190</y>
+       <width>270</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string>QLineEdit { border: 1px solid #BBDEFB; border-radius: 6px; padding: 5px; background-color: #F5F5F5; }</string>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>270</y>
+       <width>150</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>16</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string>color: #D32F2F;</string>
+     </property>
+     <property name="text">
+      <string>TOTAL (Rp):</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_total">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>270</y>
+       <width>270</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string>QLineEdit { border: 2px solid #D32F2F; border-radius: 8px; padding: 5px; background-color: #FFEBEE; color: #D32F2F; }</string>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_cetak_struk">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>320</y>
+       <width>180</width>
+       <height>45</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string>QPushButton {
+	background-color: #4CAF50; /* Hijau untuk aksi sukses/cetak */
+	color: white;
+	border: none;
+	border-radius: 8px;
+	padding: 10px 20px;
+	font: 700 12pt &quot;Times New Roman&quot;;
+}
+QPushButton:hover {
+	background-color: #388E3C;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Cetak Struk</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

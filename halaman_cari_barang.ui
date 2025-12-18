@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Cart Barang - Pencarian</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string>QWidget#centralwidget { background-color: #E3F2FD; }</string>
+   </property>
+   <widget class="QPushButton" name="pushButton_back">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>80</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>QPushButton {
+	background-color: #757575;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 5px 10px;
+	font: 600 9pt &quot;Times New Roman&quot;;
+}
+QPushButton:hover {
+	background-color: #616161;
+}</string>
+    </property>
+    <property name="text">
+     <string>← Back</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>20</y>
+      <width>401</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>24</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string>color: #0D47A1;</string>
+    </property>
+    <property name="text">
+     <string>CART BARANG 🔍</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_pencarian">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>80</y>
+      <width>900</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>QGroupBox { 
+       background-color: white; 
+       border: 2px solid #BBDEFB; 
+       border-radius: 10px; 
+       margin-top: 15px; 
+       padding-top: 15px;
+       font: 700 12pt &quot;Times New Roman&quot;; 
+       color: #1976D2; 
+      }
+      QGroupBox::title { 
+       subcontrol-origin: margin; 
+       subcontrol-position: top center; 
+       padding: 0 10px; 
+      }</string>
+    </property>
+    <property name="title">
+     <string>Pencarian Barang</string>
+    </property>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>35</y>
+       <width>100</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Cari Barang:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_pencarian">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>35</y>
+       <width>300</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string>QLineEdit { border: 1px solid #BBDEFB; border-radius: 6px; padding: 5px; }</string>
+     </property>
+     <property name="placeholderText">
+      <string>Masukkan nama barang, kode, atau kategori...</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_cari">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>35</y>
+       <width>100</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string>QPushButton {
+	background-color: #2196F3;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	padding: 5px 10px;
+	font: 700 10pt &quot;Times New Roman&quot;;
+}
+QPushButton:hover {
+	background-color: #1976D2;
+}</string>
+     </property>
+     <property name="text">
+      <string>Cari</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_reset">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>35</y>
+       <width>100</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string>QPushButton {
+	background-color: #FF9800;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	padding: 5px 10px;
+	font: 700 10pt &quot;Times New Roman&quot;;
+}
+QPushButton:hover {
+	background-color: #F57C00;
+}</string>
+     </property>
+     <property name="text">
+      <string>Reset</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_hasil">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>200</y>
+      <width>900</width>
+      <height>350</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>QGroupBox { 
+       background-color: white; 
+       border: 2px solid #BBDEFB; 
+       border-radius: 10px; 
+       margin-top: 15px; 
+       padding-top: 15px;
+       font: 700 12pt &quot;Times New Roman&quot;; 
+       color: #1976D2; 
+      }
+      QGroupBox::title { 
+       subcontrol-origin: margin; 
+       subcontrol-position: top center; 
+       padding: 0 10px; 
+      }</string>
+    </property>
+    <property name="title">
+     <string>Hasil Pencarian Barang</string>
+    </property>
+    <widget class="QTableWidget" name="tableWidget_hasil">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>40</y>
+       <width>840</width>
+       <height>250</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string>QTableWidget {
+	border: 1px solid #BBDEFB;
+	border-radius: 5px;
+	background-color: white;
+}
+QHeaderView::section {
+	background-color: #2196F3;
+	color: white;
+	padding: 5px;
+}</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_tambah_ke_keranjang">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>300</y>
+       <width>201</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string>QPushButton {
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	padding: 8px 15px;
+	font: 700 11pt &quot;Times New Roman&quot;;
+}
+QPushButton:hover {
+	background-color: #388E3C;
+}</string>
+     </property>
+     <property name="text">
+      <string>Tambah ke Keranjang</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_lihat_keranjang">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>300</y>
+       <width>171</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string>QPushButton {
+	background-color: #2196F3;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	padding: 8px 15px;
+	font: 700 11pt &quot;Times New Roman&quot;;
+}
+QPushButton:hover {
+	background-color: #1976D2;
+}</string>
+     </property>
+     <property name="text">
+      <string>Lihat Keranjang</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_keranjang">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>570</y>
+      <width>900</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>QGroupBox { 
+       background-color: white; 
+       border: 2px solid #4CAF50; 
+       border-radius: 10px; 
+       margin-top: 15px; 
+       padding-top: 15px;
+       font: 700 12pt &quot;Times New Roman&quot;; 
+       color: #2E7D32; 
+      }
+      QGroupBox::title { 
+       subcontrol-origin: margin; 
+       subcontrol-position: top center; 
+       padding: 0 10px; 
+      }</string>
+    </property>
+    <property name="title">
+     <string>Keranjang Sementara</string>
+    </property>
+    <widget class="QLabel" name="label_jumlah_barang">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>35</y>
+       <width>200</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Jumlah Barang: 0 item</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_total_sementara">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>35</y>
+       <width>200</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Total Sementara: Rp 0</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_lanjut_penjualan">
+     <property name="geometry">
+      <rect>
+       <x>679</x>
+       <y>30</y>
+       <width>201</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string>QPushButton {
+	background-color: #9C27B0;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	padding: 8px 15px;
+	font: 700 11pt &quot;Times New Roman&quot;;
+}
+QPushButton:hover {
+	background-color: #7B1FA2;
+}</string>
+     </property>
+     <property name="text">
+      <string>Lanjut ke Penjualan</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1000</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

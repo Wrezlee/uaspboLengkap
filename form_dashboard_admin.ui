@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1130</width>
+    <height>983</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="manageJenisButton">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>230</y>
+      <width>250</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton { background-color: #F8BBD0; color: #4A148C; border-radius: 15px; font-weight: bold; font-size: 14px; padding: 8px; border: 2px solid #9C27B0; }
+QPushButton:hover { background-color: #F06292; color: white; }</string>
+    </property>
+    <property name="text">
+     <string>Mengelola Jenis Pakaian 👚</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="manageStokButton">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>230</y>
+      <width>250</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton { background-color: #BBDEFB; color: #0D47A1; border-radius: 15px; font-weight: bold; font-size: 14px; padding: 8px; border: 2px solid #1976D2; }
+QPushButton:hover { background-color: #42A5F5; color: white; }</string>
+    </property>
+    <property name="text">
+     <string>Mengelola Stok Pakaian 📦</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="manageUserButton">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>230</y>
+      <width>250</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton { 
+       background-color: #FFF9C4; 
+       color: #F57F17; 
+       border-radius: 15px; 
+       font-weight: bold; 
+       font-size: 14px; 
+       padding: 8px; 
+       border: 2px solid #FBC02D; 
+}
+QPushButton:hover { 
+       background-color: #FBC02D; 
+       color: white; 
+}</string>
+    </property>
+    <property name="text">
+     <string>Mengelola User 👥</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="viewLaporanButton">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>230</y>
+      <width>250</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton { background-color: #C8E6C9; color: #1B5E20; border-radius: 15px; font-weight: bold; font-size: 14px; padding: 8px; border: 2px solid #4CAF50; }
+QPushButton:hover { background-color: #66BB6A; color: white; }</string>
+    </property>
+    <property name="text">
+     <string>Lihat Laporan Penjualan 📊</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="searchPalingLaku">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>310</y>
+      <width>1060</width>
+      <height>45</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit {
+       border: 2px solid #FBC02D;
+       border-radius: 10px;
+       padding-left: 15px;
+       font-size: 14px;
+       background-color: #FFFFFF;
+}</string>
+    </property>
+    <property name="placeholderText">
+     <string>🔍 Cari barang paling banyak dijual di sini...</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tabelHasilCari">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>360</y>
+      <width>1060</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+      QTableWidget {
+       background-color: #FFFFFF;
+       border: 2px solid #FBC02D;
+       border-radius: 10px;
+       gridline-color: #E1BEE7;
+       font-size: 13px;
+      }
+      QHeaderView::section {
+       background-color: #FFF9C4;
+       color: #F57F17;
+       font-weight: bold;
+       border: none;
+       padding: 5px;
+      }
+     </string>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectRows</enum>
+    </property>
+    <property name="columnCount">
+     <number>6</number>
+    </property>
+    <attribute name="horizontalHeaderVisible">
+     <bool>true</bool>
+    </attribute>
+    <attribute name="horizontalHeaderCascadingSectionResizes">
+     <bool>true</bool>
+    </attribute>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>176</number>
+    </attribute>
+    <attribute name="horizontalHeaderStretchLastSection">
+     <bool>true</bool>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>ID Pakaian</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Jenis</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Nama Barang</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Ukuran</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Stok</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Harga</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>510</y>
+      <width>1061</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame { background-color: white; border-radius: 20px; border: 3px solid #E1BEE7; padding: 15px; }
+QLabel { background-color: #F3E5F5; color: #4A148C; border-radius: 15px; padding: 10px; font-weight: bold; }</string>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>70</y>
+       <width>211</width>
+       <height>241</height>
+      </rect>
+     </property>
+     <property name="pixmap">
+      <pixmap>foto/1.jpeg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>70</y>
+       <width>211</width>
+       <height>241</height>
+      </rect>
+     </property>
+     <property name="pixmap">
+      <pixmap>foto/3.jpeg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>70</y>
+       <width>211</width>
+       <height>241</height>
+      </rect>
+     </property>
+     <property name="pixmap">
+      <pixmap>foto/2.jpeg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="welcomeSubtitleLabel">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>10</y>
+       <width>541</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size: 16px; color: #757575;</string>
+     </property>
+     <property name="text">
+      <string>Pilih menu di atas untuk mulai mengelola toko pakaian Anda</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>810</x>
+       <y>70</y>
+       <width>211</width>
+       <height>241</height>
+      </rect>
+     </property>
+     <property name="pixmap">
+      <pixmap>foto/4.jpeg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="logoutButton">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>870</y>
+      <width>200</width>
+      <height>45</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton { background-color: #B0BEC5; color: #263238; border-radius: 22px; font-weight: bold; font-size: 14px; padding: 10px 20px; border: 2px solid #78909C; }
+QPushButton:hover { background-color: #78909C; color: white; }</string>
+    </property>
+    <property name="text">
+     <string>Keluar (Logout) 🚪</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="headerFrame">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>1110</width>
+      <height>212</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame { background-color: #E1BEE7; border-radius: 20px; padding: 20px; }</string>
+    </property>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>1111</width>
+       <height>212</height>
+      </rect>
+     </property>
+     <property name="pixmap">
+      <pixmap>C:/Users/LENOVO/Downloads/Taobao Banner Clothing Background.jpeg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>-10</y>
+       <width>1021</width>
+       <height>231</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>foto/Background.jpeg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="titleLabel_2">
+     <property name="geometry">
+      <rect>
+       <x>410</x>
+       <y>30</y>
+       <width>261</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Selamat Datang Admin</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="subtitleLabel_2">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>120</y>
+       <width>171</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Toko Pakaian Kece ✨</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1130</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Tambah Barang</string>
+  </property>
+  <property name="styleSheet">
+   <string>QDialog { background-color: #E3F2FD; }</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>30</y>
+     <width>301</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Times New Roman</family>
+     <pointsize>18</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string>color: #0D47A1;</string>
+   </property>
+   <property name="text">
+    <string>TAMBAH BARANG</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>70</y>
+     <width>411</width>
+     <height>261</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>QGroupBox { 
+     background-color: white; 
+     border: 2px solid #BBDEFB; 
+     border-radius: 10px; 
+     margin-top: 15px; 
+     padding-top: 15px;
+     font: 700 12pt &quot;Times New Roman&quot;; 
+     color: #1976D2; 
+    }
+    QGroupBox::title { 
+     subcontrol-origin: margin; 
+     subcontrol-position: top center; 
+     padding: 0 10px; 
+    }</string>
+   </property>
+   <property name="title">
+    <string>Pilih Barang</string>
+   </property>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>40</y>
+      <width>100</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Nama Barang:</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_barang">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>40</y>
+      <width>230</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>QComboBox { border: 1px solid #BBDEFB; border-radius: 5px; padding: 5px; }</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>90</y>
+      <width>100</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Ukuran:</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_ukuran">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>90</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>QComboBox { border: 1px solid #BBDEFB; border-radius: 5px; padding: 5px; }</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>90</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Warna:</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_warna">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>90</y>
+      <width>60</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>QComboBox { border: 1px solid #BBDEFB; border-radius: 5px; padding: 5px; }</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>140</y>
+      <width>100</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Harga Satuan:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_harga">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>140</y>
+      <width>150</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>QLineEdit { 
+      border: 1px solid #BBDEFB; 
+      border-radius: 5px; 
+      padding: 5px; 
+      background-color: #F5F5F5;
+     }</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>190</y>
+      <width>100</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Jumlah:</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox_jumlah">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>190</y>
+      <width>80</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>QSpinBox { 
+      border: 1px solid #BBDEFB; 
+      border-radius: 5px; 
+      padding: 5px;
+     }</string>
+    </property>
+    <property name="minimum">
+     <number>1</number>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+    <property name="value">
+     <number>1</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>190</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Sub Total</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_subtotal">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>190</y>
+      <width>80</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>QLineEdit { 
+      border: 1px solid #BBDEFB; 
+      border-radius: 5px; 
+      padding: 5px; 
+      background-color: #F5F5F5;
+      font-weight: bold;
+     }</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="pushButton_simpan">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>340</y>
+     <width>100</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>QPushButton {
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	padding: 8px 15px;
+	font: 700 11pt &quot;Times New Roman&quot;;
+}
+QPushButton:hover {
+	background-color: #388E3C;
+}</string>
+   </property>
+   <property name="text">
+    <string>Simpan</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_batal">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>340</y>
+     <width>100</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string>QPushButton {
+	background-color: #F44336;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	padding: 8px 15px;
+	font: 700 11pt &quot;Times New Roman&quot;;
+}
+QPushButton:hover {
+	background-color: #D32F2F;
+}</string>
+   </property>
+   <property name="text">
+    <string>Batal</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

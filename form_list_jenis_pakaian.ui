@@ -1,0 +1,1247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>StokPakaianForm</class>
+ <widget class="QWidget" name="StokPakaianForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1250</width>
+    <height>900</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>List Jenis Pakaian</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* Background similar to React component: gradient-to-br from-blue-100 via-purple-100 to-pink-100 */
+QWidget#StokPakaianForm {
+    background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #F3E5F5,   /* light lavender */
+        stop:0.5 #E1BEE7, /* soft violet */
+        stop:1 #D7B4EB    /* violet pastel */
+    );
+}
+
+/* New background style for QWidget#TokoPakaianAdmin */
+QWidget#TokoPakaianAdmin { 
+    background-color: #E3F2FD; /* light blue */
+}
+
+QFrame#headerFrame {
+    background-color: white;
+    border: 4px solid #90CAF9; /* border-blue-300 */
+    border-radius: 20px;
+    padding: 15px;
+}
+QFrame#filterFrame {
+    background-color: white;
+    border: 4px solid #CE93D8; /* border-purple-300 */
+    border-radius: 15px;
+}
+/* Styling for QFrame#summaryFrame (was removed, keeping QPushButton styling) */
+QPushButton#backButton {
+    background-color: #EF5350; /* Red-400 */
+    color: white;
+    border-radius: 12px;
+    padding: 10px 30px; 
+    font-size: 18px; 
+    font-weight: bold;
+    border: none;
+    min-width: 150px;
+}
+QPushButton#backButton:hover {
+    background-color: #E53935; /* Red-600 */
+}
+
+QTableWidget {
+    border: 2px solid #E0E0E0;
+    border-radius: 10px;
+    gridline-color: #E0E0E0;
+    alternate-background-color: #E3F3FF; /* bg-blue-50 */
+}
+QTableWidget::item {
+    padding: 8px;
+}</string>
+  </property>
+  <widget class="QFrame" name="headerFrame">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>1211</width>
+     <height>140</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="iconLabel">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>20</y>
+      <width>80</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>48</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>📦</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="titleLabel">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>40</y>
+      <width>441</width>
+      <height>48</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>24</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #1976D2;</string>
+    </property>
+    <property name="text">
+     <string>Kelola Jenis Pakaian</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="filterFrame">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>175</y>
+     <width>761</width>
+     <height>64</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="searchIconLabel">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>15</y>
+      <width>28</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>🔍</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="searchTermLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>15</y>
+      <width>461</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit { border: 2px solid #CE93D8;
+border-radius: 8px; padding: 5px; }
+QLineEdit:focus { border: 2px solid #9C27B0; }</string>
+    </property>
+    <property name="placeholderText">
+     <string>Cari ID, Jenis, atau Nama Pakaian...</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="filterIconLabel">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>18</y>
+      <width>28</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>⚙️</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="filterKategoriComboBox">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>20</y>
+      <width>171</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QComboBox { border: 2px solid #CE93D8;
+border-radius: 8px; padding: 5px; }</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>Pakaian Wanita</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Pakaian Pria</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Pakaian Anak-Anak</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Aksesoris</string>
+     </property>
+    </item>
+   </widget>
+  </widget>
+  <widget class="QTableWidget" name="stokTableWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>254</y>
+     <width>761</width>
+     <height>581</height>
+    </rect>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <property name="alternatingRowColors">
+    <bool>true</bool>
+   </property>
+   <property name="selectionBehavior">
+    <enum>QAbstractItemView::SelectRows</enum>
+   </property>
+   <property name="columnCount">
+    <number>6</number>
+   </property>
+   <attribute name="horizontalHeaderVisible">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="horizontalHeaderMinimumSectionSize">
+    <number>30</number>
+   </attribute>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>120</number>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderDefaultSectionSize">
+    <number>40</number>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>ID Pakaian</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Jenis</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Nama Barang</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Ukuran</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Stok</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Harga</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QPushButton" name="backButton">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>850</y>
+     <width>210</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Kembali</string>
+   </property>
+  </widget>
+  <widget class="QFrame" name="footerButtonFrame">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>816</y>
+     <width>326</width>
+     <height>64</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_4"/>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>810</x>
+     <y>180</y>
+     <width>421</width>
+     <height>661</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* ========================================================== */
+/* STYLING KHUSUS UNTUK QTabWidget (Tambah, Edit, Hapus) */
+/* ========================================================== */
+
+/* --- QTabWidget &amp; QTabBar Styling --- */
+QTabWidget::pane {
+    /* Area konten tab (pane) */
+    border: 2px solid #90CAF9; /* Border biru muda yang halus */
+    border-radius: 10px;
+    padding: 1px;
+    background-color:  #E3F2FD; /* Latar belakang konten tab: Biru Muda (Tepat seperti yang Anda minta) */
+}
+
+QTabWidget::tab-bar {
+    left: 5px; /* Menggeser sedikit tab header ke kanan */
+}
+
+QTabBar::tab {
+    /* Gaya untuk tab yang tidak terpilih */
+    background: #BBDEFB; /* Biru sedang */
+    border: 1px solid #90CAF9; 
+    border-bottom-color: #90CAF9; /* Border bawah sesuai warna border pane */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 8px 15px;
+    min-width: 80px;
+    font-weight: bold;
+    color: #1976D2; /* Teks biru gelap */
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+    /* Gaya untuk tab yang terpilih atau di-hover */
+    background: white; /* Latar belakang putih */
+    border-color: #90CAF9;
+    border-bottom-color: white; /* Agar terlihat menyambung dengan content pane */
+}
+
+/* --- QGroupBox Styling di dalam Tab (Area Form) --- */
+QGroupBox { 
+    background-color: white; /* Latar belakang kotak input putih */
+    border: 2px solid #BBDEFB; /* Border biru muda */
+    border-radius: 10px; 
+    margin-top: 10px; 
+    padding-top: 20px; 
+} 
+QGroupBox::title { 
+    subcontrol-origin: margin; 
+    subcontrol-position: top center;
+    padding: 0 10px; 
+    color: rgba(0, 0, 0, 180); 
+    font: 600 14pt &quot;Inter&quot;;
+}
+
+/* --- Input Fields (QLineEdit, QSpinBox) Styling di dalam Tab --- */
+QLineEdit { 
+    border: 1px solid #BBDEFB; /* Border biru muda */
+    border-radius: 6px; 
+    padding: 8px; 
+    color: rgba(0, 0, 0, 180); 
+}
+QLineEdit:focus { 
+    border: 2px solid #9C27B0; /* Fokus ungu yang lebih menonjol */
+}
+QSpinBox { 
+    border: 1px solid #BBDEFB;
+    border-radius: 6px; 
+    padding: 8px; 
+    color: rgba(0, 0, 0, 180); 
+}
+
+/* --- QPushButton Styling di dalam Tab --- */
+/* Umumkan gaya dasar tombol di dalam tab */
+QTabWidget QPushButton {
+    border: none;
+    border-radius: 8px;
+    padding: 10px; 
+    font: 600 11pt &quot;Inter&quot;;
+    color: white;
+    min-height: 30px;
+}
+
+/* Button Simpan/Update (Hijau) */
+QPushButton#pushButton_simpan, QPushButton#pushButton_update { 
+    background-color: #4CAF50; /* Hijau */
+} 
+QPushButton#pushButton_simpan:hover, QPushButton#pushButton_update:hover { 
+    background-color: #388E3C; /* Hijau lebih gelap */
+}
+
+/* Button Hapus/Kembali/Batal (Merah) */
+QPushButton#pushButton_hapus, 
+QPushButton#pushButton_kembali, 
+QPushButton#pushButton_cancel { 
+    background-color: #F44336; /* Merah */
+} 
+QPushButton#pushButton_hapus:hover, 
+QPushButton#pushButton_kembali:hover, 
+QPushButton#pushButton_cancel:hover { 
+    background-color: #D32F2F; /* Merah lebih gelap */
+}
+
+/* Button Cari (Biru muda) */
+QPushButton#pushButton_cari_pakaian { 
+    background-color: #BBDEFB; 
+    color: black; 
+    font: 500 10pt &quot;Inter&quot;; 
+    min-height: 10px;
+    padding: 0px;
+} 
+QPushButton#pushButton_cari_pakaian:hover { 
+    background-color: #90CAF9; 
+}</string>
+   </property>
+   <property name="currentIndex">
+    <number>1</number>
+   </property>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>Tambah</string>
+    </attribute>
+    <widget class="QGroupBox" name="groupBox_tambah_pakaian">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>10</y>
+       <width>380</width>
+       <height>591</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string>QGroupBox { background-color: white;
+border: 2px solid #BBDEFB; border-radius: 10px; margin-top: 10px; padding-top: 20px; } QGroupBox::title { subcontrol-origin: margin; subcontrol-position: top center;
+padding: 0 10px; color: rgba(0, 0, 0, 180); font: 600 14pt &quot;Inter&quot;;
+}</string>
+     </property>
+     <property name="title">
+      <string>Detail Pakaian Baru</string>
+     </property>
+     <widget class="QLabel" name="label_id_pakaian">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>28</y>
+        <width>97</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>font: 500 10pt &quot;Inter&quot;;
+color: rgba(0, 0, 0, 180);</string>
+      </property>
+      <property name="text">
+       <string>ID Pakaian:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_id_pakaian">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>64</y>
+        <width>356</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>QLineEdit { border: 1px solid #BBDEFB;
+border-radius: 6px; padding: 8px; color: rgba(0, 0, 0, 180); } QLineEdit::placeholder { color: rgba(0, 0, 0, 100);
+}</string>
+      </property>
+      <property name="placeholderText">
+       <string>Masukkan ID</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_jenis">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>110</y>
+        <width>49</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>font: 500 10pt &quot;Inter&quot;;
+color: rgba(0, 0, 0, 180);</string>
+      </property>
+      <property name="text">
+       <string>Jenis:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_jenis">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>146</y>
+        <width>356</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>QLineEdit { border: 1px solid #BBDEFB;
+border-radius: 6px; padding: 8px; color: rgba(0, 0, 0, 180); } QLineEdit::placeholder { color: rgba(0, 0, 0, 100);
+}</string>
+      </property>
+      <property name="placeholderText">
+       <string>Pilih Jenis</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_nama_barang">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>192</y>
+        <width>118</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>font: 500 10pt &quot;Inter&quot;;
+color: rgba(0, 0, 0, 180);</string>
+      </property>
+      <property name="text">
+       <string>Nama Barang:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_nama_barang">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>228</y>
+        <width>356</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>QLineEdit { border: 1px solid #BBDEFB;
+border-radius: 6px; padding: 8px; color: rgba(0, 0, 0, 180); } QLineEdit::placeholder { color: rgba(0, 0, 0, 100);
+}</string>
+      </property>
+      <property name="placeholderText">
+       <string>Masukkan Nama</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_ukuran">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>274</y>
+        <width>65</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>font: 500 10pt &quot;Inter&quot;;
+color: rgba(0, 0, 0, 180);</string>
+      </property>
+      <property name="text">
+       <string>Ukuran:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_ukuran">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>310</y>
+        <width>356</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>QLineEdit { border: 1px solid #BBDEFB;
+border-radius: 6px; padding: 8px; color: rgba(0, 0, 0, 180); } QLineEdit::placeholder { color: rgba(0, 0, 0, 100);
+}</string>
+      </property>
+      <property name="placeholderText">
+       <string>Pilih Ukuran</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_stok">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>356</y>
+        <width>43</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>font: 500 10pt &quot;Inter&quot;;
+color: rgba(0, 0, 0, 180);</string>
+      </property>
+      <property name="text">
+       <string>Stok:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_stok">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>392</y>
+        <width>356</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>QLineEdit { border: 1px solid #BBDEFB;
+border-radius: 6px; padding: 8px; color: rgba(0, 0, 0, 180); } QLineEdit::placeholder { color: rgba(0, 0, 0, 100);
+}</string>
+      </property>
+      <property name="placeholderText">
+       <string>Masukkan jumlah stok</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_harga">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>438</y>
+        <width>43</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>font: 500 10pt &quot;Inter&quot;;
+color: rgba(0, 0, 0, 180);</string>
+      </property>
+      <property name="text">
+       <string>Harga:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_harga">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>474</y>
+        <width>230</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>QLineEdit { border: 1px solid #BBDEFB;
+border-radius: 6px; padding: 8px; color: rgba(0, 0, 0, 180); } QLineEdit::placeholder { color: rgba(0, 0, 0, 100);
+}</string>
+      </property>
+      <property name="placeholderText">
+       <string>Masukkan harga</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_simpan">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>530</y>
+        <width>111</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>QPushButton { background-color: #4CAF50; color: white; border-radius: 8px; padding: 10px; font: 600 11pt &quot;Inter&quot;; } QPushButton:hover { background-color: #388E3C; }</string>
+      </property>
+      <property name="text">
+       <string>Simpan</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_cancel">
+      <property name="geometry">
+       <rect>
+        <x>198</x>
+        <y>530</y>
+        <width>111</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>QPushButton { 
+          background-color: #F44336; /* Merah solid */ 
+          color: white; /* Teks Putih */ 
+          border-radius: 8px; 
+          padding: 10px; 
+          font: 600 11pt &quot;Inter&quot;; 
+} 
+QPushButton:hover { 
+          background-color: #D32F2F; /* Hover Merah Lebih Gelap */ 
+}</string>
+      </property>
+      <property name="text">
+       <string>Batal</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>Edit</string>
+    </attribute>
+    <widget class="QGroupBox" name="groupBox_edit_pakaian">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>10</y>
+       <width>380</width>
+       <height>591</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Detail Pakaian yang Akan Diperbarui</string>
+     </property>
+     <widget class="QLabel" name="label_id_pakaian_edit">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>28</y>
+        <width>97</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>ID Pakaian:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_id_pakaian_edit">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>64</y>
+        <width>271</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Masukkan ID Pakaian</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_cari_edit">
+      <property name="geometry">
+       <rect>
+        <x>295</x>
+        <y>64</y>
+        <width>63</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>
+    QPushButton {
+    background-color: #BBDEFB;
+    color: black;
+    border-radius: 6px;
+    font: 500 10pt &quot;Inter&quot;;
+    }
+    QPushButton:hover {
+    background-color: #90CAF9;
+    }
+        </string>
+      </property>
+      <property name="text">
+       <string>Cari</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_jenis_edit">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>110</y>
+        <width>49</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Jenis:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_jenis_edit">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>146</y>
+        <width>356</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_nama_barang_edit">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>192</y>
+        <width>118</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Nama Barang:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_nama_barang_edit">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>228</y>
+        <width>356</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_ukuran_edit">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>274</y>
+        <width>65</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Ukuran:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_ukuran_edit">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>310</y>
+        <width>356</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_stok_edit">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>356</y>
+        <width>43</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Stok:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_stok_edit">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>392</y>
+        <width>356</width>
+        <height>32</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_harga_edit">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>438</y>
+        <width>43</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Harga:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_harga_edit">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>474</y>
+        <width>351</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_update">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>530</y>
+        <width>121</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Perbarui</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_cancel">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>530</y>
+        <width>121</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Batal</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>Hapus</string>
+    </attribute>
+    <widget class="QGroupBox" name="groupBox_konfirmasi_hapus_pakaian">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>10</y>
+       <width>380</width>
+       <height>591</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string>QGroupBox { background-color: white;
+border: 2px solid #BBDEFB; border-radius: 10px; margin-top: 10px; padding-top: 20px; } QGroupBox::title { subcontrol-origin: margin; subcontrol-position: top center;
+padding: 0 10px; color: rgba(0, 0, 0, 180); font: 600 14pt &quot;Inter&quot;;
+}</string>
+     </property>
+     <property name="title">
+      <string>Detail Pakaian yang Akan Dihapus</string>
+     </property>
+     <widget class="QLabel" name="label_id_pakaian">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>28</y>
+        <width>97</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>font: 500 10pt &quot;Inter&quot;;
+color: rgba(0, 0, 0, 180);</string>
+      </property>
+      <property name="text">
+       <string>ID Pakaian:</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_id_pakaian">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>64</y>
+        <width>298</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>QSpinBox { border: 1px solid #BBDEFB;
+border-radius: 6px; padding: 8px; color: rgba(0, 0, 0, 180); }</string>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>99999</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_cari_pakaian">
+      <property name="geometry">
+       <rect>
+        <x>322</x>
+        <y>64</y>
+        <width>46</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>QPushButton { background-color:
+#BBDEFB; color: black; border-radius: 6px; padding: 8px; font: 500 10pt &quot;Inter&quot;; } QPushButton:hover { background-color: #90CAF9;
+}</string>
+      </property>
+      <property name="text">
+       <string>Cari</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_jenis">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>110</y>
+        <width>49</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>font: 500 10pt &quot;Inter&quot;;
+color: rgba(0, 0, 0, 180);</string>
+      </property>
+      <property name="text">
+       <string>Jenis:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_jenis">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>146</y>
+        <width>356</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>QLineEdit { border: 1px solid #BBDEFB;
+border-radius: 6px; padding: 8px; color: rgba(0, 0, 0, 180); }</string>
+      </property>
+      <property name="placeholderText">
+       <string>Contoh: Pakaian Anak-Anak</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_nama_barang">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>192</y>
+        <width>118</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>font: 500 10pt &quot;Inter&quot;;
+color: rgba(0, 0, 0, 180);</string>
+      </property>
+      <property name="text">
+       <string>Nama Barang:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_nama_barang">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>228</y>
+        <width>356</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>QLineEdit { border: 1px solid #BBDEFB;
+border-radius: 6px; padding: 8px; color: rgba(0, 0, 0, 180); }</string>
+      </property>
+      <property name="placeholderText">
+       <string>Contoh: Kaos Polos Merah</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_ukuran">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>274</y>
+        <width>65</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>font: 500 10pt &quot;Inter&quot;;
+color: rgba(0, 0, 0, 180);</string>
+      </property>
+      <property name="text">
+       <string>Ukuran:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_ukuran">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>310</y>
+        <width>356</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>QLineEdit { border: 1px solid #BBDEFB;
+border-radius: 6px; padding: 8px; color: rgba(0, 0, 0, 180); }</string>
+      </property>
+      <property name="placeholderText">
+       <string>Contoh: S, M, L, XL</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_stok">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>356</y>
+        <width>43</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>font: 500 10pt &quot;Inter&quot;;
+color: rgba(0, 0, 0, 180);</string>
+      </property>
+      <property name="text">
+       <string>Stok:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_stok">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>392</y>
+        <width>356</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>QLineEdit { border: 1px solid #BBDEFB;
+border-radius: 6px; padding: 8px; color: rgba(0, 0, 0, 180); }</string>
+      </property>
+      <property name="placeholderText">
+       <string>Masukkan jumlah stok</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_harga">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>438</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>font: 500 10pt &quot;Inter&quot;;
+color: rgba(0, 0, 0, 180);</string>
+      </property>
+      <property name="text">
+       <string>Harga:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_harga">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>474</y>
+        <width>351</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>QLineEdit { border: 1px solid #BBDEFB;
+border-radius: 6px; padding: 8px; color: rgba(0, 0, 0, 180); }</string>
+      </property>
+      <property name="placeholderText">
+       <string>Masukkan harga</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_hapus">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>530</y>
+        <width>111</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>QPushButton { background-color: #F44336; color: white; border-radius: 8px; padding: 10px; font: 600 11pt &quot;Inter&quot;; } QPushButton:hover { background-color: #D32F2F; }</string>
+      </property>
+      <property name="text">
+       <string>Hapus</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_cancel">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>530</y>
+        <width>121</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string>QPushButton { 
+          background-color: #F44336; /* Merah solid */ 
+          color: white; /* Teks Putih */ 
+          border-radius: 8px; 
+          padding: 10px; 
+          font: 600 11pt &quot;Inter&quot;; 
+} 
+QPushButton:hover { 
+          background-color: #D32F2F; /* Hover Merah Lebih Gelap */ 
+}</string>
+      </property>
+      <property name="text">
+       <string>Batal</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

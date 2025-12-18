@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>677</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Data Stok Barang</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string>QWidget#centralwidget { background-color: #E3F2FD; }</string>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>10</y>
+      <width>501</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>24</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string>color: #0D47A1;</string>
+    </property>
+    <property name="text">
+     <string>DATA STOK BARANG 📦</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_filter">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>80</y>
+      <width>800</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>
+      QGroupBox { 
+       background-color: white; 
+       border: 2px solid #BBDEFB; 
+       border-radius: 10px; 
+       padding-top: 15px;
+       font: 700 12pt &quot;Times New Roman&quot;; 
+       color: #1976D2; 
+      }
+     </string>
+    </property>
+    <property name="title">
+     <string>Filter Data</string>
+    </property>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>35</y>
+       <width>80</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Kategori:</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox_kategori">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>35</y>
+       <width>200</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string>QComboBox { border: 1px solid #BBDEFB; border-radius: 5px; padding: 5px; }</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_refresh">
+     <property name="geometry">
+      <rect>
+       <x>650</x>
+       <y>35</y>
+       <width>120</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string>QPushButton {
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	padding: 5px 10px;
+	font: 700 10pt &quot;Times New Roman&quot;;
+}
+QPushButton:hover {
+	background-color: #388E3C;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Refresh Data</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget_stok">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>180</y>
+      <width>800</width>
+      <height>400</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>QTableWidget {
+	border: 1px solid #BBDEFB;
+	border-radius: 5px;
+	background-color: white;
+}
+QHeaderView::section {
+	background-color: #2196F3;
+	color: white;
+	padding: 5px;
+}
+</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_export">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>590</y>
+      <width>141</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string>QPushButton {
+	background-color: #FF9800;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	padding: 8px 15px;
+	font: 700 11pt &quot;Times New Roman&quot;;
+}
+QPushButton:hover {
+	background-color: #F57C00;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Export Excel</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
